@@ -4,7 +4,7 @@ Algoritmo tarea5_prob1_numeroATexto
 	Definir numUnidades, numDecenas, numCentenas, numMiles, numDiezMiles, numCienMiles, residuo Como Entero;
 	Escribir "Proporciona el numero menor a 1 millón. Se aceptan hasta 2 decimales: ";
 	Leer num;
-	decimales<- ConvertirATexto(trunc((num-trunc(num))*100));
+	decimales<- ConvertirATexto(redon(((num-trunc(num))*100)));
 	residuo<-trunc(num);
 	cantidad<-"";
 	// primero ver los cienmiles
@@ -40,7 +40,6 @@ Algoritmo tarea5_prob1_numeroATexto
 			9: cantidad<-cantidad+" Noventa";				
 		FinSegun
 	FinSi
-	Escribir num / 10000;
 	Si ((((num / 10000)>=1) | ((num / 100000)>=1)) & ((residuo/1000)>=1)) Entonces
 		cantidad<-cantidad+" y";
 	FinSi
@@ -59,12 +58,12 @@ Algoritmo tarea5_prob1_numeroATexto
 			9: cantidad<-cantidad+" Nueve";				
 		FinSegun
 	FinSi
-	Si ((num / 1000)>0) Entonces
+	Si ((num / 1000)>=1) Entonces
 		cantidad<-cantidad+" mil";
 	FinSi
 	Si ((residuo / 100) >= 1) Entonces
 		// tenemos un numero de cienmiles
-		numCentenas<-trunc(residuo/100);
+		numCentenas<-redon(residuo/100);
 		residuo<-residuo % 100;
 		Segun numCentenas Hacer
 			1: cantidad<-cantidad+" Ciento";
