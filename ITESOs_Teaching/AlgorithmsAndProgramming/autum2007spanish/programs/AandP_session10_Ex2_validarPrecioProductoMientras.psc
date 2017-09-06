@@ -1,6 +1,7 @@
 Algoritmo validarPrecioProductoMientras
 	Definir precio Como Real;
 	Escribir "Escriba el precio del producto: ";
+	Leer precio;
 	Mientras precio < 0 Hacer
 		Escribir "El precio no puede ser negativo.";
 		Escribir "Escriba de nuevo el precio: ";
